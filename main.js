@@ -77,6 +77,18 @@ function applyUpgrade(upgradeId) {
             document.getElementById("weakerFirewall").className = "";
             spawnAdCooldown = 4000;
             break;
+        case "weakerFirewall":
+            document.getElementById("weakestFirewall").className = "";
+            spawnAdCooldown = 3000;
+            break;
+        case "weakestFirewall":
+            document.getElementById("brokenFirewall").className = "";
+            spawnAdCooldown = 2500;
+            break;
+        case "brokenFirewall":
+            spawnAdCooldown = 2000;
+            break;
+            
         case "bigXs":
             document.getElementById("biggerXs").className = "";
             closeButtons = document.querySelectorAll("." + closeButtonLVL);
@@ -85,22 +97,44 @@ function applyUpgrade(upgradeId) {
                 closeButton.className = closeButtonLVL;
             });
             break;
-        case "adCloser_1.0":
-            adCloser();
-            document.getElementById("adCloser_2.0").className = "";
-            break;
-        case "weakerFirewall":
-            spawnAdCooldown = 3000;
-            break;
         case "biggerXs":
+            document.getElementById("biggestXs").className = "";
             closeButtons = document.querySelectorAll("." + closeButtonLVL);
             closeButtonLVL = "closeButton3";
             closeButtons.forEach(closeButton => {
                 closeButton.className = closeButtonLVL;
             });
             break;
+        case "biggestXs":
+            document.getElementById("hugeXs").className = "";
+            closeButtons = document.querySelectorAll("." + closeButtonLVL);
+            closeButtonLVL = "closeButton4";
+            closeButtons.forEach(closeButton => {
+                closeButton.className = closeButtonLVL;
+            });
+            break;
+        case "hugeXs":
+            closeButtons = document.querySelectorAll("." + closeButtonLVL);
+            closeButtonLVL = "closeButton5";
+            closeButtons.forEach(closeButton => {
+                closeButton.className = closeButtonLVL;
+            });
+            break;
+
+        case "adCloser_1.0":
+            adCloser();
+            document.getElementById("adCloser_2.0").className = "";
+            break;
         case "adCloser_2.0":
+            document.getElementById("adCloser_3.0").className = "";
             adCloserCooldown = 25000;
+            break;
+        case "adCloser_3.0":
+            document.getElementById("adCloser_4.0").className = "";
+            adCloserCooldown = 15000;
+            break;
+        case "adCloser_4.0":
+            adCloserCooldown = 10000;
             break;
     };
 
