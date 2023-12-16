@@ -1,6 +1,6 @@
 const desktop = document.getElementById("desktop");
 const currencyDisplay = document.getElementById("currencyDisplay");
-const upgrades = document.querySelectorAll("#upgrades div");
+const upgrades = document.querySelectorAll("#upgrades > div");
 let currency = 0;
 let spawnAdCooldown = 5000;
 let adCloserCooldown = 50000;

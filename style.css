@@ -30,7 +30,7 @@ html, body {
 
 .ad {
 
-    background-color: whitesmoke;
+    background-color: aliceblue;
     position: absolute;
     width: 250px;
     height: 187.5px;
@@ -127,7 +127,7 @@ html, body {
 h1 {
 
     position: absolute;
-    top: 100px;
+    top: 8%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -141,10 +141,11 @@ h1 {
     padding: 10px;
     height: calc(100% - 40px);
     width: 340px;
+    z-index: 1;
 
 }
 
-#upgrades div {
+#upgrades > div {
 
     background-color:aliceblue;
     margin-bottom: 10px;
@@ -157,10 +158,29 @@ h1 {
 
 }
 
-#upgrades div:hover {
+#upgrades > div:hover {
 
     scale: 1.03;
     transition: 0.1s ease-in-out;
+
+}
+
+.popup {
+
+    position: absolute;
+    top: 0px;
+    left: 350px;
+    width: max-content;
+    max-width: 340px;
+    background-color: lightskyblue;
+    box-shadow: 4px 4px 12px 0px rgba(66, 68, 90, 0.5);
+    visibility: hidden;
+
+}
+
+#upgrades > div:hover .popup {
+
+    visibility: visible;
 
 }
 
@@ -196,7 +216,6 @@ h1 {
 
 #upgrades div p {
 
-    width: 200px;
     margin: 0px;
     padding: 10px;
 
