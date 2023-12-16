@@ -158,9 +158,9 @@ html, body {
 
 }
 
-h1 {
+#currencyDisplay {
 
-    position: absolute;
+    position: fixed;
     top: 8%;
     left: 50%;
     transform: translate(-50%, -50%);
