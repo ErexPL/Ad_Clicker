@@ -1,0 +1,211 @@
+html, body {
+
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+
+}
+
+* {
+
+    user-select: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#desktop {
+
+    position: relative;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 750px;
+    border: 5px solid black;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    background-image: url("imgs/desktop.png");
+    background-size: cover;
+
+}
+
+.ad {
+
+    background-color: whitesmoke;
+    position: absolute;
+    width: 250px;
+    height: 187.5px;
+    border: 3px solid black;
+    animation: popup 0.2s ease-in-out;
+
+}
+
+@keyframes popup {
+    0% {
+        scale: 1;
+        rotate: 0deg;
+    }
+    25% {
+        rotate: 10deg;
+    }
+    50% {
+        scale: 1.05;
+    }
+    75% {
+        rotate: -10deg;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+.closeButton1 {
+
+    position: absolute;
+    top: -3px;
+    left: 227px;
+    width: 20px;
+    height: 20px;
+    background-image: url("imgs/close.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: tomato;
+    border: 3px solid black;
+    transition: 0.1s ease-in-out;
+
+}
+
+.closeButton2 {
+
+    position: absolute;
+    top: -3px;
+    left: 217px;
+    width: 30px;
+    height: 30px;
+    background-image: url("imgs/close.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: tomato;
+    border: 3px solid black;
+    transition: 0.1s ease-in-out;
+
+}
+
+.closeButton3 {
+
+    position: absolute;
+    top: -3px;
+    left: 207px;
+    width: 40px;
+    height: 40px;
+    background-image: url("imgs/close.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: tomato;
+    border: 3px solid black;
+    transition: 0.1s ease-in-out;
+
+}
+
+.closeButton1:hover, .closeButton2:hover, .closeButton3:hover {
+
+    box-shadow: 0px 0px 3px 0px rgb(255, 0, 0, 0.5);
+    background-color: red;
+    transition: 0.1s ease-in-out;
+
+}
+
+.closeAd {
+
+    transform: scaleY(1%);
+    transition: 0.1s ease-in-out;
+
+}
+
+h1 {
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#upgrades {
+
+    position: absolute;
+    background-color: lightskyblue;
+    margin: 10px;
+    padding: 10px;
+    height: calc(100% - 40px);
+    width: 340px;
+
+}
+
+#upgrades div {
+
+    background-color:aliceblue;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 90px;
+    transition: 0.1s ease-in-out;
+
+}
+
+#upgrades div:hover {
+
+    scale: 1.03;
+    transition: 0.1s ease-in-out;
+
+}
+
+#upgrades .hidden {
+
+    display: none;
+
+}
+
+#upgrades .bought.bought {
+
+    background-color: lightgreen;
+    scale: 1;
+    transition: 0.1s ease-in-out;
+
+}
+
+#upgrades .notBought.notBought {
+
+    background-color: tomato;
+    scale: 1;
+    transition: 0.1s ease-in-out;
+
+}
+
+#upgrades div h2 {
+
+    width: 200px;
+    margin: 0px;
+    padding: 10px;
+
+}
+
+#upgrades div p {
+
+    width: 200px;
+    margin: 0px;
+    padding: 10px;
+
+}
+
+#upgrades div img {
+
+    width: 50px;
+    margin: 0px;
+    padding: 20px;
+
+}
