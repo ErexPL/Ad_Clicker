@@ -3,6 +3,7 @@ html, body {
     background-color: aliceblue;
     margin: 0;
     padding: 0;
+    height: 100%;
 
 }
 
@@ -16,14 +17,14 @@ html, body {
 
 #desktop {
 
-    position: relative;
+    position: fixed;
+    left: 50vw;
     top: 50vh;
-    left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 750px;
-    border: 5px solid black;
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    width: 50vw;
+    height: 50vh;
+    border: 0.5vmin solid black;
+    box-shadow: 0.8vmin 0.8vmin 2.4vmin 0vmin rgba(66, 68, 90, 1);
     background-image: url("imgs/desktop.png");
     background-size: cover;
 
@@ -32,11 +33,14 @@ html, body {
 .ad {
 
     background-color: aliceblue;
-    position: absolute;
-    width: 250px;
-    height: 187.5px;
-    border: 3px solid black;
+    position: fixed;
+    width: 25%;
+    height: 25%;
+    border: 0.3vmin solid black;
     animation: popup 0.2s ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+    background-size: cover;
 
 }
 
@@ -59,96 +63,62 @@ html, body {
     }
 }
 
-.closeButton1 {
+.ad > div {
 
-    position: absolute;
-    top: -3px;
-    left: 227px;
-    width: 20px;
-    height: 20px;
     background-image: url("imgs/cross.png");
-    background-size: 10px;
+    background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: tomato;
-    border: 3px solid black;
+    border: 0.3vmin solid black;
     transition: 0.1s ease-in-out;
+
+}
+
+.ad > div:hover {
+
+    background-color: red;
+    transition: 0.2s ease-in-out;
+
+}
+
+.closeButton1 {
+
+    margin: -0.9%;
+    width: 2vmin;
+    height: 2vmin;
 
 }
 
 .closeButton2 {
 
-    position: absolute;
-    top: -3px;
-    left: 217px;
-    width: 30px;
-    height: 30px;
-    background-image: url("imgs/cross.png");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: tomato;
-    border: 3px solid black;
-    transition: 0.1s ease-in-out;
+    margin: -0.9%;
+    width: 3vmin;
+    height: 3vmin;
 
 }
 
 .closeButton3 {
 
-    position: absolute;
-    top: -3px;
-    left: 207px;
-    width: 40px;
-    height: 40px;
-    background-image: url("imgs/cross.png");
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: tomato;
-    border: 3px solid black;
-    transition: 0.1s ease-in-out;
+    margin: -0.9%;
+    width: 4vmin;
+    height: 4vmin;
 
 }
 
 .closeButton4 {
 
-    position: absolute;
-    top: -3px;
-    left: 197px;
-    width: 50px;
-    height: 50px;
-    background-image: url("imgs/cross.png");
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: tomato;
-    border: 3px solid black;
-    transition: 0.1s ease-in-out;
+    margin: -0.9%;
+    width: 5vmin;
+    height: 5vmin;
 
 }
 
 .closeButton5 {
 
-    position: absolute;
-    top: -3px;
-    left: 187px;
-    width: 60px;
-    height: 60px;
-    background-image: url("imgs/cross.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: tomato;
-    border: 3px solid black;
-    transition: 0.1s ease-in-out;
-
-}
-
-.closeButton1:hover, .closeButton2:hover, .closeButton3:hover, .closeButton4:hover, .closeButton5:hover {
-
-    box-shadow: 0px 0px 3px 0px rgb(255, 0, 0, 0.5);
-    background-color: red;
-    transition: 0.1s ease-in-out;
+    margin: -0.9%;
+    width: 6vmin;
+    height: 6vmin;
 
 }
 
@@ -162,7 +132,8 @@ html, body {
 #currencyDisplay {
 
     position: fixed;
-    top: 20px;
+    font-size: 3vmin;
+    top: 10vh;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -170,12 +141,12 @@ html, body {
 
 #upgrades {
 
-    position: absolute;
+    position: fixed;
     background-color: lightskyblue;
-    margin: 10px;
-    padding: 10px;
-    height: calc(100% - 20px);
-    width: 350px;
+    margin: 1vh;
+    padding: 1vmin;
+    height: 98vh;
+    width: 17vw;
     z-index: 1;
 
 }
@@ -183,12 +154,10 @@ html, body {
 #upgrades > div {
 
     background-color:aliceblue;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 1vmin;
+    padding: 1vmin;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 110px;
+    max-height: 10vmax;
     transition: 0.1s ease-in-out;
 
 }
@@ -202,13 +171,13 @@ html, body {
 
 .popup {
 
-    position: absolute;
-    top: 0px;
-    left: 340px;
+    position: fixed;
+    top: 0vh;
+    left: 16.5vw;
     width: max-content;
-    max-width: 340px;
+    max-width: 15vw;
     background-color: lightskyblue;
-    box-shadow: 4px 4px 12px 0px rgba(66, 68, 90, 0.5);
+    box-shadow: 0.4vmin 0.4vmin 1.2vmin 0vmin rgba(66, 68, 90, 0.5);
     visibility: hidden;
 
 }
@@ -243,48 +212,51 @@ html, body {
 
 #upgrades div h2 {
 
-    width: 220px;
-    margin: 0px;
-    padding: 10px;
+    font-size: 1.3vw;
+    width: 10vw;
+    padding: 0.5vw;
+    margin: 0vw;
 
 }
 
 #upgrades div p {
 
-    margin: 0px;
-    padding: 10px;
+    font-size: 0.8vw;
+    padding: 0.5vw;
+    margin: 0vw;
 
 }
 
 #upgrades div img {
 
-    width: 50px;
-    margin: 20px;
+    width: 2vw;
+    height: 2vw;
+    margin: 1.3vw;
 
 }
 
 #adExeUI {
 
-    position: absolute;
+    position: fixed;
+    left: 82vw;
     top: 50vh;
-    left: 85%;
     transform: translate(-50%, -50%);
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 200px;
-    height: 750px;
+    width: 8vw;
+    height: 50vh;
     transition: 0.5s ease-in-out;
     
 }
 
 #chargeBar {
 
-    width: 200px;
-    height: 600px;
+    width: 8vw;
+    height: 40vh;
     background-color: rgba(66, 68, 90, 1);
-    border: 5px solid black;
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    border: 0.5vmin solid black;
+    box-shadow: 0.8vmin 0.8vmin 2.4vmin 0vmin rgba(66, 68, 90, 1);
     display: flex;
     align-items: flex-end;
 
@@ -292,20 +264,20 @@ html, body {
 
 #chargeMeter {
 
-    width: 190px;
-    height: 0px;
+    width: 8vw;
+    height: 0%;
     background-color: lightgreen;
 
 }
 
 button {
 
-    width: 200px;
-    height: 100px;
+    width: 8vw;
+    height: 5vh;
     background-color: rgba(66, 68, 90, 1);
-    border: 5px solid black;
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    font-size: 30px;
+    border: 0.5vmin solid black;
+    box-shadow: 0.8vmin 0.8vmin 2.4vmin 0vmin rgba(66, 68, 90, 1);
+    font-size: 3vmin;
     font-weight: bold;
     transition: 0.1s ease-in-out;
 
@@ -313,7 +285,7 @@ button {
 
 button:hover {
 
-    scale: 1.03;
+    scale: 1.05;
     transition: 0.1s ease-in-out;
 
 }

@@ -12,9 +12,9 @@ let chargeMeterCounter = 0;
 function spawnAd() {
     let ad = document.createElement("div");
     ad.className = "ad";
-    ad.style.top = Math.floor(Math.random() * 451) + "px";
-    ad.style.left = Math.floor(Math.random() * 601) + "px";
-    ad.style.backgroundImage = "url(https://picsum.photos/250/188?random=" + Math.floor(Math.random() * 1000000) + ")";
+    ad.style.left = Math.floor(Math.random() * 74 + 1) + "%";
+    ad.style.top = Math.floor(Math.random() * 74 + 1) + "%";
+    ad.style.backgroundImage = "url(https://picsum.photos/384/216?random=" + Math.floor(Math.random() * 1000000) + ")";
     desktop.appendChild(ad);
     let closeButton = document.createElement("div");
     closeButton.className = closeButtonLVL;
@@ -36,9 +36,9 @@ function spawnAd() {
 function spawnAdOnce() {
     let ad = document.createElement("div");
     ad.className = "ad";
-    ad.style.top = Math.floor(Math.random() * 451) + "px";
-    ad.style.left = Math.floor(Math.random() * 601) + "px";
-    ad.style.backgroundImage = "url(https://picsum.photos/250/188?random=" + Math.floor(Math.random() * 1000000) + ")";
+    ad.style.left = Math.floor(Math.random() * 74 + 1) + "%";
+    ad.style.top = Math.floor(Math.random() * 74 + 1) + "%";
+    ad.style.backgroundImage = "url(https://picsum.photos/384/216?random=" + Math.floor(Math.random() * 1000000) + ")";
     desktop.appendChild(ad);
     let closeButton = document.createElement("div");
     closeButton.className = closeButtonLVL;
@@ -100,10 +100,10 @@ function applyUpgrade(upgradeId) {
         case "adExe":
             adExeUI.style.display = "flex";
             setTimeout(() => {
-                adExeUI.style.height = "780px";
+                adExeUI.style.scale = "1.1";
             }, 100);
             setTimeout(() => {
-                adExeUI.style.height = "750px";
+                adExeUI.style.scale = "1";
             }, 600);
             break;
 
@@ -175,14 +175,12 @@ function applyUpgrade(upgradeId) {
 };
 
 function increaseMeter() {
-    if (chargeMeterCounter != 10) {
-        chargeMeterCounter++;
-        chargeMeter.style.height = chargeMeterCounter * (590 / 10) + "px";
-    }
-    else {
+    chargeMeterCounter++;
+    chargeMeter.style.height = 10 * chargeMeterCounter + "%";
+    if (chargeMeterCounter == 10) {
         setTimeout(() => {
             chargeMeterCounter = 0;
-            chargeMeter.style.height = "0px";
+            chargeMeter.style.height = "0%";
             spawnAdOnce();
         }, 100);
     };
