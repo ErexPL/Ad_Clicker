@@ -7,6 +7,14 @@
 </head>
 <body>
     <section id="upgrades">
+        <div id="adExe" price="10">
+            <h2>Ad.exe</h2>
+            <p>Price: 10</p>
+            <img src="imgs/touch.png">
+            <div class="popup">
+                <p>Spawns ads every few clicks<br>10 clicks</p>
+            </div>
+        </div>
         <div id="weakFirewall" price="10">
             <h2>Weak Firewall</h2>
             <p>Price: 10</p>
@@ -106,6 +114,12 @@
     </section>
     <h1 id="currencyDisplay">Closed Ads: 0</h1>
     <div id="desktop"></div>
+    <section id="adExeUI">
+        <div id="chargeBar">
+            <div id="chargeMeter"></div>
+        </div>
+        <button onclick="increaseMeter()">Ad.exe</button>
+    </section>
     <script src="main.js"></script>
 </body>
 </html>

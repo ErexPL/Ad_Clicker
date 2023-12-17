@@ -1,10 +1,13 @@
 const desktop = document.getElementById("desktop");
 const currencyDisplay = document.getElementById("currencyDisplay");
+const adExeUI = document.getElementById("adExeUI");
+const chargeMeter = document.getElementById("chargeMeter");
 const upgrades = document.querySelectorAll("#upgrades > div");
-let currency = 0;
+let currency = 1000;
 let spawnAdCooldown = 5000;
 let adCloserCooldown = 50000;
 let closeButtonLVL = "closeButton1";
+let chargeMeterCounter = 0;
 
 function spawnAd() {
     let ad = document.createElement("div");
@@ -28,6 +31,27 @@ function spawnAd() {
     setTimeout(() => {
         spawnAd();
     }, spawnAdCooldown);
+};
+
+function spawnAdOnce() {
+    let ad = document.createElement("div");
+    ad.className = "ad";
+    ad.style.top = Math.floor(Math.random() * 451) + "px";
+    ad.style.left = Math.floor(Math.random() * 601) + "px";
+    ad.style.backgroundImage = "url(https://picsum.photos/250/188?random=" + Math.floor(Math.random() * 1000000) + ")";
+    desktop.appendChild(ad);
+    let closeButton = document.createElement("div");
+    closeButton.className = closeButtonLVL;
+    closeButton.addEventListener('click', function(node) {
+        let parent = node.currentTarget.parentNode;
+        parent.className += " closeAd";
+        currency++;
+        currencyDisplay.innerHTML = "Closed Ads: " + currency;
+        setTimeout(() => {
+            parent.remove();
+        }, 100);
+    }, false);
+    ad.appendChild(closeButton);
 };
 
 function adCloser() {
@@ -73,6 +97,16 @@ function applyUpgrade(upgradeId) {
     let closeButtons = document.querySelectorAll("." + closeButtonLVL);
 
     switch (upgradeId) {
+        case "adExe":
+            adExeUI.style.display = "flex";
+            setTimeout(() => {
+                adExeUI.style.height = "780px";
+            }, 100);
+            setTimeout(() => {
+                adExeUI.style.height = "750px";
+            }, 600);
+            break;
+
         case "weakFirewall":
             document.getElementById("weakerFirewall").className = "";
             spawnAdCooldown = 4000;
@@ -138,6 +172,20 @@ function applyUpgrade(upgradeId) {
             break;
     };
 
+};
+
+function increaseMeter() {
+    if (chargeMeterCounter != 10) {
+        chargeMeterCounter++;
+        chargeMeter.style.height = chargeMeterCounter * (590 / 10) + "px";
+    }
+    else {
+        setTimeout(() => {
+            chargeMeterCounter = 0;
+            chargeMeter.style.height = "0px";
+            spawnAdOnce();
+        }, 100);
+    };
 };
 
 spawnAd();

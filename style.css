@@ -8,6 +8,7 @@ html, body {
 
 * {
 
+    box-sizing: border-box;
     user-select: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
@@ -173,8 +174,8 @@ html, body {
     background-color: lightskyblue;
     margin: 10px;
     padding: 10px;
-    height: calc(100% - 40px);
-    width: 340px;
+    height: calc(100% - 20px);
+    width: 350px;
     z-index: 1;
 
 }
@@ -187,7 +188,7 @@ html, body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 90px;
+    max-height: 110px;
     transition: 0.1s ease-in-out;
 
 }
@@ -203,7 +204,7 @@ html, body {
 
     position: absolute;
     top: 0px;
-    left: 350px;
+    left: 340px;
     width: max-content;
     max-width: 340px;
     background-color: lightskyblue;
@@ -242,7 +243,7 @@ html, body {
 
 #upgrades div h2 {
 
-    width: 200px;
+    width: 220px;
     margin: 0px;
     padding: 10px;
 
@@ -258,7 +259,69 @@ html, body {
 #upgrades div img {
 
     width: 50px;
-    margin: 0px;
-    padding: 20px;
+    margin: 20px;
+
+}
+
+#adExeUI {
+
+    position: absolute;
+    top: 50vh;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 750px;
+    transition: 0.5s ease-in-out;
+    
+}
+
+#chargeBar {
+
+    width: 200px;
+    height: 600px;
+    background-color: rgba(66, 68, 90, 1);
+    border: 5px solid black;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    display: flex;
+    align-items: flex-end;
+
+}
+
+#chargeMeter {
+
+    width: 190px;
+    height: 0px;
+    background-color: lightgreen;
+
+}
+
+button {
+
+    width: 200px;
+    height: 100px;
+    background-color: rgba(66, 68, 90, 1);
+    border: 5px solid black;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    font-size: 30px;
+    font-weight: bold;
+    transition: 0.1s ease-in-out;
+
+}
+
+button:hover {
+
+    scale: 1.03;
+    transition: 0.1s ease-in-out;
+
+}
+
+button:active {
+
+    background-color: tomato;
+    scale: 1;
+    transition: 0s ease-in-out;
 
 }
