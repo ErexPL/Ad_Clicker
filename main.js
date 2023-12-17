@@ -3,10 +3,11 @@ const currencyDisplay = document.getElementById("currencyDisplay");
 const adExeUI = document.getElementById("adExeUI");
 const chargeMeter = document.getElementById("chargeMeter");
 const upgrades = document.querySelectorAll("#upgrades > div");
-let currency = 0;
+let currency = 1000;
 let spawnAdCooldown = 5000;
 let adCloserCooldown = 50000;
 let closeButtonLVL = "closeButton1";
+let chargeMeterRequired = 10;
 let chargeMeterCounter = 0;
 
 function spawnAd() {
@@ -98,6 +99,7 @@ function applyUpgrade(upgradeId) {
 
     switch (upgradeId) {
         case "adExe":
+            document.getElementById("priorityExecutable").className = "";
             adExeUI.style.display = "flex";
             setTimeout(() => {
                 adExeUI.style.scale = "1.1";
@@ -105,6 +107,23 @@ function applyUpgrade(upgradeId) {
             setTimeout(() => {
                 adExeUI.style.scale = "1";
             }, 600);
+            break;
+        case "priorityExecutable":
+            document.getElementById("highPriorityExecutable").className = "";
+            chargeMeterRequired = 9;
+            chargeMeterCounter = 0;
+            chargeMeter.style.height = "0%";
+            break;
+        case "highPriorityExecutable":
+            document.getElementById("higherPriorityExecutable").className = "";
+            chargeMeterRequired = 8;
+            chargeMeterCounter = 0;
+            chargeMeter.style.height = "0%";
+            break;
+        case "higherPriorityExecutable":
+            chargeMeterRequired = 7;
+            chargeMeterCounter = 0;
+            chargeMeter.style.height = "0%";
             break;
 
         case "weakFirewall":
@@ -176,8 +195,8 @@ function applyUpgrade(upgradeId) {
 
 function increaseMeter() {
     chargeMeterCounter++;
-    chargeMeter.style.height = 10 * chargeMeterCounter + "%";
-    if (chargeMeterCounter == 10) {
+    chargeMeter.style.height = (100 / chargeMeterRequired) * chargeMeterCounter + "%";
+    if (chargeMeterCounter == chargeMeterRequired) {
         setTimeout(() => {
             chargeMeterCounter = 0;
             chargeMeter.style.height = "0%";

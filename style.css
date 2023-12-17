@@ -214,7 +214,8 @@ html, body {
 
     font-size: 1vw;
     width: 10vw;
-    padding: 0.5vw;
+    padding-top: 0.5vw;
+    padding-left: 0.5vw;
     margin: 0vw;
 
 }
