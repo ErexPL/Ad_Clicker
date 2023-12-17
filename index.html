@@ -47,14 +47,24 @@
                 <p>Spawns ads every few clicks<br>10 clicks &rarr; 9 clicks</p>
             </div>
         </div>
-        <div id="adCloser_1.0" price="25">
+        <div id="adCloser" price="25">
             <div>
-                <h2>Ad Closer 1.0</h2>
+                <h2>Ad Closer</h2>
                 <p>Price: 25</p>
             </div>
             <img src="imgs/cursor.png">
             <div class="popup">
                 <p>Closes ads automatically every few seconds<br>50s</p>
+            </div>
+        </div>
+        <div id="goldenAd" price="25">
+            <div>
+                <h2>Golden Ad</h2>
+                <p>Price: 25</p>
+            </div>
+            <img src="imgs/gold.png">
+            <div class="popup">
+                <p>Increases the chance for a golden ad to spawn (click on it instead of the X to gain extra money)<br>1%</p>
             </div>
         </div>
         <div id="weakerFirewall" price="25" class="hidden">
@@ -107,6 +117,16 @@
                 <p>Increases the Xs size<br>4x4 &rarr; 5x5</p>
             </div>
         </div>
+        <div id="goldenScanner" price="50" class="hidden">
+            <div>
+                <h2>Golden Scanner</h2>
+                <p>Price: 50</p>
+            </div>
+            <img src="imgs/gold_green.png">
+            <div class="popup">
+                <p>Increases the chance for a golden ad to spawn (click on it instead of the X to gain extra money)<br>1% &rarr; 2%</p>
+            </div>
+        </div>
         <div id="higherPriorityExecutable" price="75" class="hidden">
             <div>
                 <h2>Higher Priority Executable</h2>
@@ -147,6 +167,16 @@
                 <p>Increases the Xs size<br>5x5 &rarr; 6x6</p>
             </div>
         </div>
+        <div id="goldenScanner_2.0" price="75" class="hidden">
+            <div>
+                <h2>Golden Scanner 2.0</h2>
+                <p>Price: 75</p>
+            </div>
+            <img src="imgs/gold_blue.png">
+            <div class="popup">
+                <p>Increases the chance for a golden ad to spawn (click on it instead of the X to gain extra money)<br>2% &rarr; 3%</p>
+            </div>
+        </div>
         <div id="adCloser_4.0" price="100" class="hidden">
             <div>
                 <h2>Ad Closer 4.0</h2>
@@ -167,8 +197,21 @@
                 <p>Makes ads popup more frequently<br>2.5s &rarr; 2s</p>
             </div>
         </div>
+        <div id="goldenScanner_3.0" price="150" class="hidden">
+            <div>
+                <h2>Golden Scanner 3.0</h2>
+                <p>Price: 150</p>
+            </div>
+            <img src="imgs/gold_purple.png">
+            <div class="popup">
+                <p>Increases the chance for a golden ad to spawn (click on it instead of the X to gain extra money)<br>3% &rarr; 5%</p>
+            </div>
+        </div>
     </section>
-    <h1 id="currencyDisplay">Closed Ads: 0</h1>
+    <div id="currencyDisplay">
+        <img id="currencySymbol" src="imgs/coin.png">
+        <h1 id="currencyNumber">0</h1>
+    </div>
     <div id="desktop"></div>
     <section id="adExeUI">
         <div id="chargeBar">

@@ -1,29 +1,45 @@
 const desktop = document.getElementById("desktop");
-const currencyDisplay = document.getElementById("currencyDisplay");
+const currencyNumber = document.getElementById("currencyNumber");
 const adExeUI = document.getElementById("adExeUI");
 const chargeMeter = document.getElementById("chargeMeter");
 const upgrades = document.querySelectorAll("#upgrades > div");
-let currency = 0;
+let currency = 1500;
 let spawnAdCooldown = 5000;
 let adCloserCooldown = 50000;
 let closeButtonLVL = "closeButton1";
 let chargeMeterRequired = 10;
 let chargeMeterCounter = 0;
+let goldenAdChance = 0;
 
 function spawnAd() {
     let ad = document.createElement("div");
+    let closeButton = document.createElement("div");
     ad.className = "ad";
     ad.style.left = Math.floor(Math.random() * 74 + 1) + "%";
     ad.style.top = Math.floor(Math.random() * 74 + 1) + "%";
-    ad.style.backgroundImage = "url(https://picsum.photos/384/216?random=" + Math.floor(Math.random() * 1000000) + ")";
+    if (Math.floor(Math.random() * 100 + 1) <= goldenAdChance) {
+        ad.style.backgroundImage = "url(imgs/coin.png)";
+        ad.style.backgroundSize = "40%";
+        ad.style.borderColor = "gold";
+        closeButton.style.borderColor = "gold";
+        ad.addEventListener('click', function(node) {
+            ad.className += " closeAd";
+            currency += 10;
+            currencyNumber.innerHTML = currency;
+            setTimeout(() => {
+                ad.remove();
+            }, 100);
+        }, false);
+    } else {
+        ad.style.backgroundImage = "url(https://picsum.photos/384/216?random=" + Math.floor(Math.random() * 1000000) + ")";
+    };
     desktop.appendChild(ad);
-    let closeButton = document.createElement("div");
     closeButton.className = closeButtonLVL;
     closeButton.addEventListener('click', function(node) {
         let parent = node.currentTarget.parentNode;
         parent.className += " closeAd";
         currency++;
-        currencyDisplay.innerHTML = "Closed Ads: " + currency;
+        currencyNumber.innerHTML = currency;
         setTimeout(() => {
             parent.remove();
         }, 100);
@@ -47,7 +63,7 @@ function spawnAdOnce() {
         let parent = node.currentTarget.parentNode;
         parent.className += " closeAd";
         currency++;
-        currencyDisplay.innerHTML = "Closed Ads: " + currency;
+        currencyNumber.innerHTML = currency;
         setTimeout(() => {
             parent.remove();
         }, 100);
@@ -62,7 +78,7 @@ function adCloser() {
         let parent = node.parentNode;
         parent.className += " closeAd";
         currency++;
-        currencyDisplay.innerHTML = "Closed Ads: " + currency;
+        currencyNumber.innerHTML = currency;
         setTimeout(() => {
             parent.remove();
         }, 100);
@@ -76,7 +92,7 @@ upgrades.forEach(upgrade => {
     upgrade.addEventListener('click', function() {
         if (currency >= upgrade.getAttribute("price")) {
             currency -= upgrade.getAttribute("price");
-            currencyDisplay.innerHTML = "Closed Ads: " + currency;
+            currencyNumber.innerHTML = currency;
             upgrade.className = "bought";
             applyUpgrade(upgrade.id);
             setTimeout(() => {
@@ -96,7 +112,6 @@ upgrades.forEach(upgrade => {
 
 function applyUpgrade(upgradeId) {
     let closeButtons = document.querySelectorAll("." + closeButtonLVL);
-
     switch (upgradeId) {
         case "adExe":
             document.getElementById("priorityExecutable").className = "";
@@ -174,7 +189,7 @@ function applyUpgrade(upgradeId) {
             });
             break;
 
-        case "adCloser_1.0":
+        case "adCloser":
             adCloser();
             document.getElementById("adCloser_2.0").className = "";
             break;
@@ -189,8 +204,23 @@ function applyUpgrade(upgradeId) {
         case "adCloser_4.0":
             adCloserCooldown = 10000;
             break;
-    };
 
+        case "goldenAd":
+            document.getElementById("goldenScanner").className = "";
+            goldenAdChance = 1;
+            break;
+        case "goldenScanner":
+            document.getElementById("goldenScanner_2.0").className = "";
+            goldenAdChance = 2;
+            break;
+        case "goldenScanner_2.0":
+            document.getElementById("goldenScanner_3.0").className = "";
+            goldenAdChance = 3;
+            break;
+        case "goldenScanner_3.0":
+            goldenAdChance = 5;
+            break;
+    };
 };
 
 function increaseMeter() {
