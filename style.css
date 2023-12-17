@@ -157,7 +157,7 @@ html, body {
     margin-bottom: 1vmin;
     padding: 1vmin;
     display: flex;
-    max-height: 10vmax;
+    max-height: 5.5vmax;
     transition: 0.1s ease-in-out;
 
 }
@@ -212,7 +212,7 @@ html, body {
 
 #upgrades div h2 {
 
-    font-size: 1.3vw;
+    font-size: 1vw;
     width: 10vw;
     padding: 0.5vw;
     margin: 0vw;
