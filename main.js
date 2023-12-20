@@ -4,6 +4,7 @@ const adExeUI = document.getElementById("adExeUI");
 const chargeMeter = document.getElementById("chargeMeter");
 const upgrades = document.querySelectorAll("#upgrades > div");
 let currency = 0;
+let adRevenue = 1;
 let spawnAdCooldown = 5000;
 let adCloserCooldown = 50000;
 let closeButtonLVL = "closeButton1";
@@ -18,8 +19,8 @@ function spawnAd() {
     ad.style.left = Math.floor(Math.random() * 74 + 1) + "%";
     ad.style.top = Math.floor(Math.random() * 74 + 1) + "%";
     if (Math.floor(Math.random() * 100 + 1) <= goldenAdChance) {
-        ad.style.backgroundImage = "url(imgs/coin.png)";
-        ad.style.backgroundSize = "40%";
+        ad.style.backgroundImage = "url(imgs/golden_ad.png)";
+        ad.style.boxShadow = "0vmin 0vmin 2.4vmin 0vmin gold";
         ad.style.borderColor = "gold";
         closeButton.style.borderColor = "gold";
         ad.addEventListener('click', function(node) {
@@ -38,7 +39,7 @@ function spawnAd() {
     closeButton.addEventListener('click', function(node) {
         let parent = node.currentTarget.parentNode;
         parent.className += " closeAd";
-        currency++;
+        currency += adRevenue;
         currencyNumber.innerHTML = currency;
         setTimeout(() => {
             parent.remove();
@@ -86,6 +87,18 @@ function adCloser() {
     setTimeout(() => {
         adCloser();
     }, adCloserCooldown);
+};
+
+function increaseMeter() {
+    chargeMeterCounter++;
+    chargeMeter.style.height = (100 / chargeMeterRequired) * chargeMeterCounter + "%";
+    if (chargeMeterCounter == chargeMeterRequired) {
+        setTimeout(() => {
+            chargeMeterCounter = 0;
+            chargeMeter.style.height = "0%";
+            spawnAdOnce();
+        }, 100);
+    };
 };
 
 upgrades.forEach(upgrade => {
@@ -220,19 +233,12 @@ function applyUpgrade(upgradeId) {
         case "goldenScanner_3.0":
             goldenAdChance = 5;
             break;
+
+        case "marketing":
+            adRevenue = 2;
+            break;
     };
 };
 
-function increaseMeter() {
-    chargeMeterCounter++;
-    chargeMeter.style.height = (100 / chargeMeterRequired) * chargeMeterCounter + "%";
-    if (chargeMeterCounter == chargeMeterRequired) {
-        setTimeout(() => {
-            chargeMeterCounter = 0;
-            chargeMeter.style.height = "0%";
-            spawnAdOnce();
-        }, 100);
-    };
-};
-
+currencyNumber.innerHTML = currency;
 spawnAd();
